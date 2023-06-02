@@ -1,0 +1,133 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="DISCOS_DBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="DISCOS">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Titulo" Type="varchar" MaxLength="100" />
+          <Property Name="FechaLanzamiento" Type="smalldatetime" />
+          <Property Name="CantidadCanciones" Type="int" />
+          <Property Name="UrlImagenTapa" Type="varchar" MaxLength="200" />
+          <Property Name="IdEstilo" Type="int" />
+          <Property Name="IdTipoEdicion" Type="int" />
+        </EntityType>
+        <EntityType Name="ESTILOS">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="TIPOSEDICION">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityContainer Name="DISCOS_DBModelStoreContainer">
+          <EntitySet Name="DISCOS" EntityType="Self.DISCOS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ESTILOS" EntityType="Self.ESTILOS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TIPOSEDICION" EntityType="Self.TIPOSEDICION" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DISCOS_DBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="DISCOS">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Titulo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="FechaLanzamiento" Type="DateTime" Precision="0" />
+          <Property Name="CantidadCanciones" Type="Int32" />
+          <Property Name="UrlImagenTapa" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="IdEstilo" Type="Int32" />
+          <Property Name="IdTipoEdicion" Type="Int32" />
+        </EntityType>
+        <EntityType Name="ESTILOS">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Descripcion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="TIPOSEDICION">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityContainer Name="DISCOS_DBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="DISCOS" EntityType="Self.DISCOS" />
+          <EntitySet Name="ESTILOS" EntityType="Self.ESTILOS" />
+          <EntitySet Name="TIPOSEDICION" EntityType="Self.TIPOSEDICION" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DISCOS_DBModelStoreContainer" CdmEntityContainer="DISCOS_DBEntities">
+          <EntitySetMapping Name="DISCOS">
+            <EntityTypeMapping TypeName="DISCOS_DBModel.DISCOS">
+              <MappingFragment StoreEntitySet="DISCOS">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Titulo" ColumnName="Titulo" />
+                <ScalarProperty Name="FechaLanzamiento" ColumnName="FechaLanzamiento" />
+                <ScalarProperty Name="CantidadCanciones" ColumnName="CantidadCanciones" />
+                <ScalarProperty Name="UrlImagenTapa" ColumnName="UrlImagenTapa" />
+                <ScalarProperty Name="IdEstilo" ColumnName="IdEstilo" />
+                <ScalarProperty Name="IdTipoEdicion" ColumnName="IdTipoEdicion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ESTILOS">
+            <EntityTypeMapping TypeName="DISCOS_DBModel.ESTILOS">
+              <MappingFragment StoreEntitySet="ESTILOS">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TIPOSEDICION">
+            <EntityTypeMapping TypeName="DISCOS_DBModel.TIPOSEDICION">
+              <MappingFragment StoreEntitySet="TIPOSEDICION">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
